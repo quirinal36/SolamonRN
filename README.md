@@ -1,0 +1,3 @@
+설치해야할 모듈 명령어
+
+    npm install react-navigation react-navigation-stack lottie-react-native @react-native-community/async-storage axios react-native-vector-icons react-native-modal react-native-extra-dimensions-android react-navigation-tabs react-native-image-picker react-native-htmlview react-native-webview react-native-calendars react-native-date-picker react-native-gesture-handler react-native-safe-area-context react-native-screens @react-native-community/masked-view react-native-video native-base react-native-side-menu react-native-splash-screen
