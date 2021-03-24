@@ -39,49 +39,10 @@ export default class SignUp_seller extends Component{
         })
     }
     render(){
-        let id='';
-        let pw='';
 
         let navigation=this.props.navigation;
         return(
-            <Container style={{backgroundColor:'#F0F2FA'}}>
-                <Header style={styles.header}>
-                    <Pressable style={{position:'absolute', left:5}} onPress={()=>navigation.goBack()}>
-                        <Icon style={{color:'white'}} name={'chevron-back'}/>
-                    </Pressable>
-                    <Text style={{fontSize:15, color:'white', textAlignVertical:'center'}}>회원가입</Text>
-                </Header>
-
-                {/* body */}
-                <View style={{justifyContent:'space-around', height:'100%', width:'100%'}}>
-                    {/* 안내 메세지 */}
-                    {/* ID, PW 입력칸 */}
-                    <View style={{flex:1.5, justifyContent:'space-around', zIndex:1}}>
-                        <View>
-                            <TextInput style={styles.textInput} onChangeText={(_id)=>id=_id} placeholder={'사용하실 아이디를 입력해주세요.'}/>
-                            <TextInput style={styles.textInput} onChangeText={(_pw)=>pw=_pw} placeholder={'비밀번호를 입력해주세요.'}/>
-                            <TextInput style={styles.textInput} placeholder={'비밀번호를 다시 입력해주세요.'}/>
-                            <TextInput style={styles.textInput} placeholder={'이름을 입력해주세요.'}/>
-                        </View>
-                    </View>
-
-                    {/* 버튼 */}
-                    <View style={{flex:1.2, alignContent:'center', justifyContent:'space-around', alignItems:'center'}}>
-                        <Button
-                            onPress={()=>this._signUpHandler(id, pw, navigation)}
-                            style={{width:'95%',alignSelf:'center', justifyContent:'center',  borderWidth:1, backgroundColor:'#F0F2FA', borderColor:'#005A96'}}>
-                            <Text style={{fontSize:15, color:'#005A96'}}>회원가입</Text>
-                        </Button>
-                        <View style={{flexDirection:'row'}}>
-                            <Text style={{fontSize:12, color:'gray'}}>이미 아이디가 있으신가요? </Text>
-                            <Pressable onPress={()=>navigation.navigate('SignInScreen')}>
-                                <Text style={{fontSize:12, fontWeight:'bold', color:'black'}}>로그인하기</Text>
-                            </Pressable>
-                        </View>
-                    </View>
-                    <View style={{flex:0.5}}></View>
-                </View>
-            </Container>
+           <View></View>
         );
     }
 }
