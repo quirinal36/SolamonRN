@@ -42,7 +42,11 @@ export default class SignUp_seller extends Component{
 
         let navigation=this.props.navigation;
         return(
-           <View></View>
+           <View>
+               <Text>
+                   야호
+               </Text>  
+           </View>
         );
     }
 }
