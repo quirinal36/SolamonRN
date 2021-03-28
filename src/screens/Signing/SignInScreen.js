@@ -100,6 +100,10 @@ class ContentView extends Component{
                             <Text>아이디가 없으신가요? </Text>
                             <Text style={{color:'gray'}}>회원가입</Text>
                         </Pressable>
+                        <Pressable style={{flexDirection:'row'}} onPress={()=>navigation.navigate('searchId')}>
+                            <Text>아이디를 찾을 수 없나요? </Text>
+                            <Text style={{color:'gray'}}>아이디찾기</Text>
+                        </Pressable>
                     </View>
                     <View style={{flex:0.5}}></View>
                 </View>

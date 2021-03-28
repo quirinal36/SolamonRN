@@ -32,6 +32,15 @@ import policy2 from './screens/policy2';
 import SignUp_select from './screens/SignUp_select';
 import SignUp_seller from './screens/Signing/SignUp_seller';
 import practice from './screens/practice';
+import searchId from './screens/searchId';
+import searchId_result from './screens/searchId_result';
+import searchPwd from './screens/searchPwd';
+import searchPwd_result from './screens/searchPwd_result';
+import SellerScreen_new from './screens/Mypage/SellerScreen_new';
+import BuyerScreen_new from './screens/Mypage/BuyerScreen_new';
+import regist_certify from './screens/Mypage/regist_certify';
+import regist_certify_2 from './screens/Mypage/regist_certify_2';
+import regist_certify_result from './screens/Mypage/regist_certify_result';
 
 const MainNavigator = createStackNavigator({
     //앱 시작시 인증
@@ -43,6 +52,16 @@ const MainNavigator = createStackNavigator({
     SignUp_select:{screen:SignUp_select},
     SignUp_seller:{screen:SignUp_seller},
     practice:{screen:practice},
+    searchId:{screen:searchId},
+    searchId_result:{screen:searchId_result},
+    searchPwd:{screen:searchPwd},
+    searchPwd_result:{screen:searchPwd_result},
+    SellerScreen_new:{screen:SellerScreen_new},
+    BuyerScreen_new:{screen:BuyerScreen_new},
+    regist_certify:{screen:regist_certify},
+    regist_certify_2:{screen:regist_certify_2},
+    regist_certify_result:{screen:regist_certify_result},
+    
 
     SignInScreen:{screen:SignInScreen},
     SignUpScreen:{screen:SignUpScreen},

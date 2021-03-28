@@ -61,7 +61,7 @@ function SideBar({children, ...props}){
         return(
             <View style={{backgroundColor:'#F0F2FA'}}>
                 {/* 상단 */}
-                <Pressable style={styles.topMenu} onPress={()=>navigation.navigate('SellerScreen')}>
+                <Pressable style={styles.topMenu} onPress={()=>navigation.navigate('SellerScreen_new')}>
                     <Icon name="person" size={50}/>
                     <Text style={{fontSize:15, color:'white'}}>홍길동</Text>
                         <Text style={{fontSize:12, color:'white'}}>{userType}</Text>
