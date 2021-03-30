@@ -92,6 +92,12 @@ function SideBar({children, ...props}){
                         <Pressable onPress={()=>navigation.navigate('ManagementScreen')} style={styles.menuList}>
                             <Text style={{fontSize:15}}>인증 리스트</Text>
                         </Pressable>
+                        <Pressable onPress={()=>navigation.navigate('scene_diagnosis')} style={styles.menuList}>
+                            <Text style={{fontSize:15}}>현장진단 신청</Text>
+                        </Pressable>
+                        <Pressable onPress={()=>navigation.navigate('ProductRegist2')} style={styles.menuList}>
+                            <Text style={{fontSize:15}}>상품 등록</Text>
+                        </Pressable>
                     </View>
                     {/* 로그아웃 */}
                     <View>

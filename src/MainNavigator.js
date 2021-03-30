@@ -41,6 +41,10 @@ import BuyerScreen_new from './screens/Mypage/BuyerScreen_new';
 import regist_certify from './screens/Mypage/regist_certify';
 import regist_certify_2 from './screens/Mypage/regist_certify_2';
 import regist_certify_result from './screens/Mypage/regist_certify_result';
+import scene_diagnosis from './screens/scene_diagnosis';
+import ProductRegist from './screens/ProductRegist';
+import ProductRegist2 from './screens/ProductRegist2';
+import ProductRegistFin from './screens/ProductRegistFin';
 
 const MainNavigator = createStackNavigator({
     //앱 시작시 인증
@@ -61,7 +65,11 @@ const MainNavigator = createStackNavigator({
     regist_certify:{screen:regist_certify},
     regist_certify_2:{screen:regist_certify_2},
     regist_certify_result:{screen:regist_certify_result},
-    
+    scene_diagnosis:{screen:scene_diagnosis},
+    ProductRegist:{screen:ProductRegist},
+    ProductRegist2:{screen:ProductRegist2},
+    ProductRegistFin:{screen:ProductRegistFin},
+
 
     SignInScreen:{screen:SignInScreen},
     SignUpScreen:{screen:SignUpScreen},

@@ -3,6 +3,7 @@ import {Text,StyleSheet, Pressable, View, Image, Alert} from 'react-native';
 import { Container, Content, Icon, Footer,Header, Button, Form  } from "native-base";
 import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default class regist_certify extends Component{
    
