@@ -45,6 +45,9 @@ import scene_diagnosis from './screens/scene_diagnosis';
 import ProductRegist from './screens/ProductRegist';
 import ProductRegist2 from './screens/ProductRegist2';
 import ProductRegistFin from './screens/ProductRegistFin';
+import MyProduct from './screens/MyProduct';
+import MyProductInf from './screens/MyProductInf';
+import ConsultRequest from './screens/ConsultRequest';
 
 const MainNavigator = createStackNavigator({
     //앱 시작시 인증
@@ -69,6 +72,9 @@ const MainNavigator = createStackNavigator({
     ProductRegist:{screen:ProductRegist},
     ProductRegist2:{screen:ProductRegist2},
     ProductRegistFin:{screen:ProductRegistFin},
+    MyProduct:{screen:MyProduct},
+    MyProductInf:{screen:MyProductInf},
+    ConsultRequest:{screen:ConsultRequest},
 
 
     SignInScreen:{screen:SignInScreen},

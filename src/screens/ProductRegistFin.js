@@ -37,7 +37,7 @@ export default class ProductRegistFin extends Component{
                 </Text>
               </View>
                <View style={styles.bg_3}>
-                <Button onPress={()=>navigation.navigate('')}
+                <Button onPress={()=>navigation.navigate('MyProduct')}
                     style={{width:'80%',alignSelf:'center', justifyContent:'center', marginTop: 30, borderWidth:1, backgroundColor:'#005A96', borderColor:'#005A96', borderRadius: 7}}>
                     <Text style={{fontSize:15, color:'#FFFFFF', textAlign: 'center', fontWeight: 'bold'}}>등록한 상품 보기</Text>
                 </Button>

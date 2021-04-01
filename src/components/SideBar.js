@@ -75,7 +75,8 @@ function SideBar({children, ...props}){
                         <Pressable onPress={()=>navigation.navigate('TermOfServiceScreen')} style={styles.menuList}>
                             <Text style={{fontSize:15}}>서비스 소개</Text>
                         </Pressable>
-                        <Pressable onPress={()=>navigation.navigate('ConsultListScreen')} style={styles.menuList}>
+                        {/* 원래는 ConsultListScreen */}
+                        <Pressable onPress={()=>navigation.navigate('ConsultRequest')} style={styles.menuList}>
                             <Text style={{fontSize:15}}>상담 신청</Text>
                         </Pressable>
                         {

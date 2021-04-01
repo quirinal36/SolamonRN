@@ -106,6 +106,28 @@ export default class UserPanelListScreen extends Component{
                         </Pressable>
                     </View>
                     </View>
+
+                    {/* 검색 결과 */}
+                    <View style={{flexDirection:'row', padding:10, height:100}}>
+                        <Text style={{padding:5, fontSize: 17}}>검색 결과</Text>
+                        <View style={styles.bg}>
+                    <Button onPress={()=>navigation.navigate('')}
+                    style={{width:'30%',alignSelf:'center', justifyContent:'center',  borderWidth:1, backgroundColor:'#808080', borderColor:'#424242'}}>
+                    <Text style={{fontSize:12, color:'#FFFFFF', textAlign: 'center'}}>인증</Text>
+                    </Button>
+                    <Button onPress={()=>navigation.navigate('')}
+                    style={{width:'30%',alignSelf:'center', justifyContent:'center',  borderWidth:1, backgroundColor:'#808080', borderColor:'#424242'}}>
+                    <Text style={{fontSize:12, color:'#FFFFFF', textAlign: 'center'}}>미인증</Text>
+                    </Button>
+                    <Button onPress={()=>navigation.navigate('')}
+                    style={{width:'30%',alignSelf:'center', justifyContent:'center',  borderWidth:1, backgroundColor:'#808080', borderColor:'#424242', marginRight: 155}}>
+                    <Text style={{fontSize:12, color:'#FFFFFF', textAlign: 'center'}}>모두</Text>
+                    </Button>
+                    </View>
+                    </View>
+
+                    
+
 <Pressable style={{position:'absolute', width:100, height:100, borderWidth:4, alignSelf:'flex-end', zIndex:1}} onPress={()=>this.openDrawer()}>
                         <Icon name={'menu'} size={20}></Icon>
                     </Pressable>
@@ -183,5 +205,11 @@ const styles = StyleSheet.create({
         backgroundColor:'#005A96',
         alignItems:'center',
     },
-
+    bg:{
+        marginTop: 40,
+        width:'100%',
+        //height:'100%',
+        justifyContent:'center',
+        flexDirection:'row',
+    },
 })

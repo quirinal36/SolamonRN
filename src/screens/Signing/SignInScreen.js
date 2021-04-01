@@ -58,7 +58,7 @@ class ContentView extends Component{
         let navigation=this.props.navigation;        
 
         return(
-            <Container style={{backgroundColor:'#F0F2FA'}}>
+            <View style={styles.container}>
                 <Header style={styles.header}>
                     <Pressable style={{position:'absolute', left:5}} onPress={()=>navigation.navigate('HomeScreen')}>
                         <Icon style={{color:'white'}} name={'chevron-back'}/>
@@ -67,47 +67,56 @@ class ContentView extends Component{
                 </Header>
 
                 {/* body */}
-                <View style={{justifyContent:'space-around', height:'100%', width:'100%'}}>
+                <View style={styles.bg}>
                     {/* 안내 메세지 */}
-                    <View style={{flex:1.2, justifyContent:'space-around'}}>
-                        <View style={{ alignItems:'center'}}>
-                            <Text style={{fontSize:20}}>로그인</Text>
-                            <Text style={{fontSize:18, color:'gray', textAlign:'center'}}>솔라몬 서비스를 이용하기 위해 로그인을 해주세요</Text>
-                        </View>
+                            <Text style={{marginTop: 100, fontSize:15, color:'gray', textAlign:'center'}}>솔라몬 서비스를 이용하기 위해{"\n"}로그인을 해주세요</Text>
                     </View>
 
                     {/* ID, PW 입력칸 */}
-                    <View style={{flex:1.3, justifyContent:'space-around'}}>
-                        <View>
-                            <TextInput style={styles.textInput} onChangeText={(_id)=>id=_id} placeholder={'아이디를 입력해주세요.'}/>
-                            <TextInput style={styles.textInput} onChangeText={(_pw)=>pw=_pw} placeholder={'비밀번호를 입력해주세요.'}/>
-                        </View>
-                    </View>
+                    <View style={styles.bg_2}>
+                            <TextInput style={styles.textInput} onChangeText={(_id)=>id=_id} placeholder={'아이디'}/>
+                            </View>
+                            <View style={styles.bg}>
+                            <TextInput style={styles.textInput} onChangeText={(_pw)=>pw=_pw} placeholder={'비밀번호'}/>
+                            </View>
+                    
 
                     {/* 버튼 */}
-                    <View style={{flex:1.0, alignContent:'center', justifyContent:'space-between', alignItems:'center'}}>
-                        <Button onPress={()=>this._loginHandler(id, pw,navigation)} style={{width:'95%', backgroundColor:'#005A96', alignSelf:'center', justifyContent:'center'}}>
+                    <View style={styles.bg_2}>
+                        <Button onPress={()=>this._loginHandler(id, pw,navigation)} style={{borderRadius: 10,width:'75%', backgroundColor:'#005A96', alignSelf:'center', justifyContent:'center'}}>
                             <Text style={{fontSize:15, color:'white'}}>로그인</Text>
                         </Button>
-                        <Text>또는</Text>
-                        <Button style={{width:'95%', backgroundColor:'#FFEB32', alignSelf:'center', justifyContent:'space-around'}}>
+                        </View>
+                        <View style={styles.bg}>
+                        <Text style={{marginTop: 70}}>또는</Text>
+                        </View>
+                        {/* <Button style={{width:'95%', backgroundColor:'#FFEB32', alignSelf:'center', justifyContent:'space-around'}}>
                             <Icon style={{color:'black', position:'absolute', left:5}} name='chatbubble'/>
                             <Text>카카오 로그인</Text>
+                        </Button> */}
+                        <View style={styles.bg_2}>
+                         <Button style={{width:'75%', backgroundColor:'#FFEB32', alignSelf:'center', justifyContent:'space-around', borderRadius: 10}}>
+                            <Text>카카오 로그인</Text>
                         </Button>
-                        <Text>주의사항</Text>
-                        <Text></Text>
-                        <Pressable style={{flexDirection:'row'}} onPress={()=>navigation.navigate('SignUp_select')}>
-                            <Text>아이디가 없으신가요? </Text>
-                            <Text style={{color:'gray'}}>회원가입</Text>
-                        </Pressable>
+                        </View>
+                        <View style={styles.bg}>
+                        <Button style={{marginTop: 10, width:'75%', backgroundColor:'#2DB400', alignSelf:'center', justifyContent:'space-around', borderRadius: 10}}>
+                            <Text>네이버 로그인</Text>
+                        </Button>
+                        </View>
+                        <View style={styles.bg}>
+                        <Button style={{marginTop: 10, width:'75%', backgroundColor:'#808080', alignSelf:'center', justifyContent:'space-around', borderRadius: 10}}>
+                            <Text>회원가입</Text>
+                        </Button>
+                        </View>
+                        <View style={styles.bg}>
                         <Pressable style={{flexDirection:'row'}} onPress={()=>navigation.navigate('searchId')}>
                             <Text>아이디를 찾을 수 없나요? </Text>
                             <Text style={{color:'gray'}}>아이디찾기</Text>
                         </Pressable>
-                    </View>
+                        </View>
                     <View style={{flex:0.5}}></View>
-                </View>
-            </Container>
+                    </View>
         );
     }
 }
@@ -133,9 +142,27 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     textInput:{
+        borderRadius: 10,   
         backgroundColor:'white', 
-        width:'90%', 
+        width:'75%', 
         marginVertical:5, 
         alignSelf:'center'
+    },
+    bg:{
+        width:'100%',
+        //height:'100%',
+        flexDirection:'row',
+        justifyContent:'center',
+    },
+    bg_2:{
+        marginTop: 8,
+        width:'100%',
+        //height:'100%',
+        flexDirection:'row',
+        justifyContent:'center',
+    },
+    container:{
+        flex: 1,
+        backgroundColor:'#F0F2FA',
     }
 })
