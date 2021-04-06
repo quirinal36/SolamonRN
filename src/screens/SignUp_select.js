@@ -32,6 +32,7 @@ export default class SignUp_select extends Component{
                         <Text style={styles.label}>구매자</Text>
                     </Pressable>
                 </View>
+                
                 <View style={styles.bg}>
                 <View style={styles.below_text_view_r}>
                     <Text style={styles.top_text}>제품을 등록하고{"\n"}판매합니다.</Text>
