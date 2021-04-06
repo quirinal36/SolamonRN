@@ -9,7 +9,6 @@ export default class SignUp_select extends Component{
             SplashScreen.hide();
         }, 500);
     }
-
     render(){
         let navigation = this.props.navigation;
 
