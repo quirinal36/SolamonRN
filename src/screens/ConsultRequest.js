@@ -27,6 +27,7 @@ export default class ConsultRequest extends Component{
                 <View style={styles.bg}>
                     <Text style={{marginTop:12, marginLeft: 12}}>구분</Text>
                 </View>
+                
             </View>
         );
     }
