@@ -48,6 +48,10 @@ import ProductRegistFin from './screens/ProductRegistFin';
 import MyProduct from './screens/MyProduct';
 import MyProductInf from './screens/MyProductInf';
 import ConsultRequest from './screens/ConsultRequest';
+import adminPage from './screens/adminPage';
+import Admin_UserManage from './screens/Admin_UserManage';
+import Admin_ProductManage from './screens/Admin_ProductManage';
+import AdminPanelListScreen from './screens/AdminPanelListScreen';
 
 const MainNavigator = createStackNavigator({
     //앱 시작시 인증
@@ -75,6 +79,10 @@ const MainNavigator = createStackNavigator({
     MyProduct:{screen:MyProduct},
     MyProductInf:{screen:MyProductInf},
     ConsultRequest:{screen:ConsultRequest},
+    adminPage:{screen:adminPage},
+    Admin_ProductManage:{screen:Admin_ProductManage},
+    Admin_UserManage:{screen:Admin_UserManage},
+    AdminPanelListScreen:{screen:AdminPanelListScreen},
 
 
     SignInScreen:{screen:SignInScreen},

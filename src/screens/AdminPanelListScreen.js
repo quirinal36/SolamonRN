@@ -5,7 +5,7 @@ import { FlatList,ScrollView,TextInput } from 'react-native-gesture-handler';
 import SideMenu from 'react-native-side-menu'
 import SideBar from '../components/SideBar';
 
-export default class UserPanelListScreen extends Component{
+export default class AdminPanelListScreen extends Component{
    
     constructor(props){
         super(props);
@@ -90,7 +90,7 @@ export default class UserPanelListScreen extends Component{
                     <Pressable style={{position:'absolute', left:5}} onPress={()=>navigation.navigate('HomeScreen')}>
                         <Icon style={{color:'white'}} name={'chevron-back'}/>
                     </Pressable>
-                    <Text style={{fontSize:15, color:'white', textAlignVertical:'center'}}>조회하기</Text>
+                    <Text style={{fontSize:20, color:'white', textAlignVertical:'center'}}>홈랜드솔루션</Text>
                 </Header>
 
                 {/* body */}
@@ -109,7 +109,7 @@ export default class UserPanelListScreen extends Component{
 
                     {/* 검색 결과 */}
                     <View style={{flexDirection:'row', padding:10, height:100}}>
-                        <Text style={{padding:5, fontSize: 17}}>검색 결과</Text>
+                        
                         <View style={styles.bg}>
                     <Button onPress={()=>navigation.navigate('')}
                     style={{width:'30%',alignSelf:'center', justifyContent:'center',  borderWidth:1, backgroundColor:'#808080', borderColor:'#424242'}}>
@@ -127,11 +127,7 @@ export default class UserPanelListScreen extends Component{
                     </View>
 
                     
-{/* 
-<Pressable style={{position:'absolute', width:100, height:100, borderWidth:4, alignSelf:'flex-end', zIndex:1}} onPress={()=>this.openDrawer()}>
-                        <Icon name={'menu'} size={20}></Icon>
-                    </Pressable> */}
-                    
+
                     <FlatList
                         data={tmpData}
                         keyExtractor={(item)=>item.id}
@@ -207,7 +203,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     bg:{
-        marginTop: 40,
+        marginLeft: 75,
         width:'100%',
         //height:'100%',
         justifyContent:'center',

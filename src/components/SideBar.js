@@ -99,6 +99,9 @@ function SideBar({children, ...props}){
                         <Pressable onPress={()=>navigation.navigate('ProductRegist2')} style={styles.menuList}>
                             <Text style={{fontSize:15}}>상품 등록</Text>
                         </Pressable>
+                        <Pressable onPress={()=>navigation.navigate('adminPage')} style={styles.menuList}>
+                            <Text style={{fontSize:15}}>관리자</Text>
+                        </Pressable>
                     </View>
                     {/* 로그아웃 */}
                     <View>

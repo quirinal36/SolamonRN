@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Text,StyleSheet, Pressable, View, Image, Alert} from 'react-native';
-import { Container, Content, Icon, Footer,Header, Button, Form  } from "native-base";
+import { Container, Content, Icon, Footer,Header, Button, Form, Radio  } from "native-base";
 import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios';
+
 
 export default class ConsultRequest extends Component{
    
@@ -27,7 +28,6 @@ export default class ConsultRequest extends Component{
                 <View style={styles.bg}>
                     <Text style={{marginTop:12, marginLeft: 12}}>구분</Text>
                 </View>
-                
             </View>
         );
     }
