@@ -4,7 +4,6 @@ import { Container, Content, Icon, Footer,Header, Button, Form  } from "native-b
 import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios';
 import { TextInput } from 'react-native-gesture-handler';
-import { color } from 'react-native-reanimated';
 
 export default class ProductRegistFin extends Component{
    
