@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {Pressable, StyleSheet, View, Text} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
@@ -16,7 +17,7 @@ export default class MainSelectScreen extends Component{
             <View style={styles.bg}>
                 <Pressable 
                     style={styles.btn}
-                    onPress={()=>navigation.navigate('SignInScreen')} //원래는 SignInScreen, 테스트용
+                    onPress={()=>navigation.navigate('SignUp_seller')} //원래는 SignInScreen, 테스트용
                 >
                     <Text style={styles.label}>판매자</Text>
                 </Pressable>

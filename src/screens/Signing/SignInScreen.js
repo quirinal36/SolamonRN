@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {Text,StyleSheet, Pressable, View} from 'react-native';
 import { Container, Content, Icon, Footer,Header, Button, Form } from "native-base";
@@ -48,16 +49,15 @@ class ContentView extends Component{
         }).then((result)=>{
             console.log(result.data);
             AsyncStorage.setItem('userType', result.data.type.toString());
-        })
+        });
     }
 
     render(){
 
-        let id;
+        let navigation = this.props.navigation;
+        let id = navigation.getParam('login','');
         let pw;
-        let navigation=this.props.navigation;        
-
-        return(
+        return (
             <View style={styles.container}>
                 <Header style={styles.header}>
                     <Pressable style={{position:'absolute', left:5}} onPress={()=>navigation.navigate('HomeScreen')}>
