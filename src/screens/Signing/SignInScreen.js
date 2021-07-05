@@ -19,33 +19,51 @@ class ContentView extends Component{
         if(typeof(pw)=='undefined' || pw.length<=0 || pw===''){
             return;
         }
-        axios.post(API_URL+"/auth/tokens",{
-            login : id,
-            passwd : pw
+        const formData = new FormData();
+        formData.append('username', id);
+        formData.append('password', id);
+        axios({
+            method: 'post',
+            url:API_URL + 'authenticate',
+            data:{
+                username : id,
+                password : pw,
+            },
         }).then((res)=>{
-            if(res.data && res.data.token && res.data.token.length != 0){
-                AsyncStorage.setItem('token',res.data.token);
-                AsyncStorage.setItem('userId',res.data.userId.toString());
-
-                this._infoHandler(res.data.token);
-            } else {
-                console.log('failed');
-                AsyncStorage.setItem('token','');
+            console.log(res.data);
+            if (res.data && res.data.data && res.data.data.jwt){
+                console.log(res.data.data.jwt.accessToken);
+                console.log(res.data.data.jwt.refreshToken);
+                AsyncStorage.setItem('accessToken',res.data.data.jwt.accessToken);
+                AsyncStorage.setItem('refreshToken',res.data.data.jwt.refreshToken);
                 AsyncStorage.setItem('userId','');
+                this._infoHandler(res.data.data.jwt.accessToken);
+                navigation.navigate('HomeScreen');
+            } else if (res.data.statusCode === 401){
+                console.log(res.data.message);
+                AsyncStorage.setItem('accessToken','');
+                AsyncStorage.setItem('refreshToken','');
+                AsyncStorage.setItem('userId','');
+            } else {
+                console.log('서버 이상');
             }
         }).catch((err)=>{
             console.error(err);
-            AsyncStorage.setItem('token','');
+            AsyncStorage.setItem('accessToken','');
+            AsyncStorage.setItem('refreshToken','');
             AsyncStorage.setItem('userId','');
-        })
-
-        navigation.navigate('HomeScreen');
+        });
     }
 
     _infoHandler= async (tok)=>{
-        await axios.get(API_URL+"/users/info",
-        {headers: {'Authorization': 'Bearer '+tok,
-            'Content-Type': 'application/json'}
+        console.log(tok);
+        await axios({
+            method: 'post',
+            url:API_URL + 'getUserInfo',
+            headers :{
+                'Authorization': 'Bearer ' + tok,
+                'Content-Type': 'application/json',
+            },
         }).then((result)=>{
             console.log(result.data);
             AsyncStorage.setItem('userType', result.data.type.toString());
@@ -55,7 +73,9 @@ class ContentView extends Component{
     render(){
 
         let navigation = this.props.navigation;
-        let id = navigation.getParam('login','');
+        let id = navigation.getParam('login','hi');
+        console.log('-----------signup succed id:' + id);
+
         let pw;
         return (
             <View style={styles.container}>
@@ -77,13 +97,15 @@ class ContentView extends Component{
                             <TextInput style={styles.textInput} onChangeText={(_id)=>id=_id} placeholder={'아이디'}/>
                             </View>
                             <View style={styles.bg}>
-                            <TextInput style={styles.textInput} onChangeText={(_pw)=>pw=_pw} placeholder={'비밀번호'}/>
+                            <TextInput 
+                                secureTextEntry={true}
+                                style={styles.textInput} onChangeText={(_pw)=>pw=_pw} placeholder={'비밀번호'}/>
                             </View>
                     
 
                     {/* 버튼 */}
                     <View style={styles.bg_2}>
-                        <Button onPress={()=>this._loginHandler(id, pw,navigation)} style={{borderRadius: 10,width:'75%', backgroundColor:'#005A96', alignSelf:'center', justifyContent:'center'}}>
+                        <Button onPress={()=>this._loginHandler(id, pw, navigation)} style={{borderRadius: 10,width:'75%', backgroundColor:'#005A96', alignSelf:'center', justifyContent:'center'}}>
                             <Text style={{fontSize:15, color:'white'}}>로그인</Text>
                         </Button>
                         </View>
@@ -105,7 +127,9 @@ class ContentView extends Component{
                         </Button>
                         </View>
                         <View style={styles.bg}>
-                        <Button style={{marginTop: 10, width:'75%', backgroundColor:'#808080', alignSelf:'center', justifyContent:'space-around', borderRadius: 10}}>
+                        <Button 
+                            onPress={()=>navigation.navigate('SignUp_seller')}
+                            style={{marginTop: 10, width:'75%', backgroundColor:'#808080', alignSelf:'center', justifyContent:'space-around', borderRadius: 10}}>
                             <Text>회원가입</Text>
                         </Button>
                         </View>
