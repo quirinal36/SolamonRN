@@ -144,9 +144,12 @@ export default class SignUp_seller extends Component{
                 <Text style={styles.pwd}>
                    팩스번호
                </Text>
-               <TextInput style={styles.textInput_phone} placeholder={'063'}/>
-               <TextInput style={styles.textInput_phone_1} placeholder={'123'}/>
-               <TextInput style={styles.textInput_phone_1} placeholder={'1234'}/>
+               <TextInput onChangeText={fax1 => this.setState({fax1})}
+                     style={styles.textInput_phone} placeholder={'063'}/>
+               <TextInput onChangeText={fax2 => this.setState({fax2})}
+                     style={styles.textInput_phone_1} placeholder={'123'}/>
+               <TextInput onChangeText={fax3 => this.setState({fax3})}
+                     style={styles.textInput_phone_1} placeholder={'1234'}/>
                 </View>
                 <Button
                     onPress={this._signUpHandler}
