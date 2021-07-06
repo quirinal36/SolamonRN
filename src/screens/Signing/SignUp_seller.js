@@ -15,6 +15,9 @@ export default class SignUp_seller extends Component{
             domain:'',
             password:'',
             name:'',
+            mobile:'',
+            fax1:'',fax2:'',fax3:'',
+            phone1:'',phone2:'',phone3:'',
         };
     }
     _signUpHandler=()=>{
@@ -28,6 +31,8 @@ export default class SignUp_seller extends Component{
         formData.append('email', this.state.email + '@' + this.state.domain);
         formData.append('role', 3);
         formData.append('name', this.state.name);
+        formData.append('phone', this.state.phone1 + this.state.phone2 + this.state.phone3);
+        formData.append('fax', this.state.fax1 + this.state.fax2 + this.state.fax3);
         axios({
             method: 'POST',
             url: url,
@@ -118,9 +123,12 @@ export default class SignUp_seller extends Component{
                 <Text style={styles.pwd}>
                    전화번호
                </Text>
-               <TextInput style={styles.textInput_phone} placeholder={'010'}/>
-               <TextInput style={styles.textInput_phone_1} placeholder={'1234'}/>
-               <TextInput style={styles.textInput_phone_1} placeholder={'1234'}/>
+               <TextInput onChangeText={phone1 => this.setState({phone1})}
+                    style={styles.textInput_phone} placeholder={'010'}/>
+               <TextInput onChangeText={phone2 => this.setState({phone2})}
+                    style={styles.textInput_phone_1} placeholder={'1234'}/>
+               <TextInput onChangeText={phone3 => this.setState({phone3})}
+                    style={styles.textInput_phone_1} placeholder={'1234'}/>
                 </View>
                 <View style={styles.bg}>
                 <Text style={styles.pwd}>

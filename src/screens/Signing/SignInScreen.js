@@ -8,7 +8,6 @@ import SideMenu from 'react-native-side-menu'
 import SideBar from '../../components/SideBar';
 import axios from 'axios';
 import { API_URL } from '../StaticVariable';
-import { NavigationEvents } from 'react-navigation';
 
 class ContentView extends Component{
 
@@ -34,11 +33,9 @@ class ContentView extends Component{
             if (res.data && res.data.data && res.data.data.jwt){
                 console.log(res.data.data.jwt.accessToken);
                 console.log(res.data.data.jwt.refreshToken);
-                AsyncStorage.setItem('accessToken',res.data.data.jwt.accessToken);
-                AsyncStorage.setItem('refreshToken',res.data.data.jwt.refreshToken);
-                AsyncStorage.setItem('userId','');
-                this._infoHandler(res.data.data.jwt.accessToken);
-                navigation.navigate('HomeScreen');
+                AsyncStorage.setItem('jwt', JSON.stringify({'accessToken':res.data.data.jwt.accessToken, 'refreshToken':res.data.data.jwt.refreshToken}));
+                //this._infoHandler(res.data.data.jwt.accessToken, navigation);
+                navigation.navigate('BuyerScreen_new');
             } else if (res.data.statusCode === 401){
                 console.log(res.data.message);
                 AsyncStorage.setItem('accessToken','');
@@ -55,7 +52,7 @@ class ContentView extends Component{
         });
     }
 
-    _infoHandler= async (tok)=>{
+    _infoHandler= async (tok, navigation)=>{
         console.log(tok);
         await axios({
             method: 'post',
@@ -65,15 +62,16 @@ class ContentView extends Component{
                 'Content-Type': 'application/json',
             },
         }).then((result)=>{
-            console.log(result.data);
-            AsyncStorage.setItem('userType', result.data.type.toString());
+            console.log(result.data.data);
+            // AsyncStorage.setItem('userId', parseInt(result.data.data.id, 10));
+            
         });
     }
 
     render(){
 
         let navigation = this.props.navigation;
-        let id = navigation.getParam('login','hi');
+        let id = navigation.getParam('login','');
         console.log('-----------signup succed id:' + id);
 
         let pw;
@@ -101,7 +99,7 @@ class ContentView extends Component{
                                 secureTextEntry={true}
                                 style={styles.textInput} onChangeText={(_pw)=>pw=_pw} placeholder={'비밀번호'}/>
                             </View>
-                    
+
 
                     {/* 버튼 */}
                     <View style={styles.bg_2}>
