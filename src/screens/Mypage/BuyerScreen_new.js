@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {Text,StyleSheet, Pressable, View} from 'react-native';
 import { Container, Content, Icon, Footer,Header, Button, Tabs, Tab, TabHeading } from "native-base";
@@ -22,15 +23,45 @@ export default class BuyerScreen_new extends Component{
               ['063-111-1234'],
               ['solalove@aaa.ccc'],
               ['063-111-1235'],
-            ]
+            ],
           };
+        AsyncStorage.getItem('jwt', (err, result) => {
+            const jwt = JSON.parse(result);
+            console.log('buyer screen');
+            console.log(jwt);
+            console.log('-------------------');
+            this._infoHandler(jwt.accessToken);
+        });
     }
 
+    _infoHandler= async (tok)=>{
+        console.log(tok);
+        await axios({
+            method: 'post',
+            url:API_URL + 'getUserInfo',
+            headers :{
+                'Authorization': 'Bearer ' + tok,
+                'Content-Type': 'application/json',
+            },
+        }).then((result)=>{
+            console.log(result.data.data);
+            const userInfo = result.data.data;
+            this.setState({tableData:[
+                ['판매자'],
+                ['미인증'],
+                [userInfo.email],
+                [userInfo.name],
+                [userInfo.phone],
+                [userInfo.email],
+                [userInfo.fax],
+            ]});
+        });
+    }
 
     render(){
-        let navigation=this.props.navigation;
+        let navigation = this.props.navigation;
         const state = this.state;
-        return(
+        return (
           <View style={styles.container}>
               <Header style={styles.header}>
                     <Pressable style={{position:'absolute', left:5}} onPress={()=>navigation.navigate('HomeScreen')}>
